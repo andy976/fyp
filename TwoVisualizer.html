@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simultaneous Visualizer</title>
+
+    <link rel="stylesheet" href="two_visualizer.css">
+
+</head>
+
+<body>
+    <nav id="nav2">
+        <a href="main_page.html">&lt; Back</a>
+
+        &nbsp;Simultaneous Visualizer
+
+        <div class="algo">
+            Algo 1:  &nbsp; &nbsp; &nbsp; 
+            <input type="radio" id="bubble" name="algo1" value="bubble" onclick=mode_selection() checked="checked">
+            <label for="bubble">Bubble</label> &nbsp; &nbsp; &nbsp;
+            <input type="radio" id="selection" name="algo1" value="selection" onclick=mode_selection()>
+            <label for="selection">Selection</label> &nbsp; &nbsp; &nbsp;
+            <input type="radio" id="insertion" name="algo1" value="insertion" onclick=mode_selection()>
+            <label for="insertion">Insertion</label> &nbsp; &nbsp; &nbsp;
+            <input type="radio" id="merge" name="algo1" value="merge" onclick=mode_selection()>
+            <label for="merge">Merge</label> &nbsp; &nbsp; &nbsp;
+            <input type="radio" id="quick" name="algo1" value="quick" onclick=mode_selection()>
+            <label for="quick">Quick</label>
+        </div>
+    </nav>
+    <nav>
+        <div class="input_array">
+            Input: <input id="a_manual" type="text">
+
+        </div>
+
+        <div class="algo">
+            Algo 2:  &nbsp; &nbsp; &nbsp; 
+            <input type="radio" id="bubble" name="algo2" value="bubble" onclick=mode_selection() >
+            <label for="bubble">Bubble</label> &nbsp; &nbsp; &nbsp;
+            <input type="radio" id="selection" name="algo2" value="selection" onclick=mode_selection() checked="checked">
+            <label for="selection">Selection</label> &nbsp; &nbsp; &nbsp;
+            <input type="radio" id="insertion" name="algo2" value="insertion" onclick=mode_selection()>
+            <label for="insertion">Insertion</label> &nbsp; &nbsp; &nbsp;
+            <input type="radio" id="merge" name="algo2" value="merge" onclick=mode_selection()>
+            <label for="merge">Merge</label> &nbsp; &nbsp; &nbsp;
+            <input type="radio" id="quick" name="algo2" value="quick" onclick=mode_selection()>
+            <label for="quick">Quick</label>
+        </div>
+    
+
+    </nav>
+    <nav>
+        <button id="generate" onclick="newarray()">Generate New Manual Array</button>
+        <button id="run_button" onclick="run()">Run the Visualizer</button>
+
+    
+    </nav>
+    <section>
+
+        <div id="Text_des1">
+            <p></p>
+        </div>
+
+        <div id="Number_bars1">
+            
+        </div>
+
+        <div id="Buttons1">
+            Step-by-Step Manual Control: <br>
+            <button id="prev" type="button" onclick="prev()" disabled>Prev</button>
+            &nbsp; &nbsp; &nbsp;
+            <button id="next" type="button" onclick="next()" disabled>Next</button>
+        </div>
+
+    </section>
+
+    <section>
+
+        <div id="Text_des2">
+            <p></p>
+        </div>
+
+        <div id="Number_bars2">
+            
+        </div>
+
+        <div id="Buttons2">
+            <p></p>
+        </div>
+
+    </section>
+
+    <footer>
+
+    </footer>
+    <script src="main2.js"></script>
+    <script src="allsort.js"></script>
+    <script src="visualizations2.js"></script>
+    <script></script>
+    <script></script>
+
+</body>
+
+</html>

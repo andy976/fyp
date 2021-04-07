@@ -1,0 +1,100 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: large;
+    font-weight: bold;
+    /*text-transform: uppercase;*/
+  }
+
+  nav {
+    background-color: #504a4a;
+    /*height: 5vh;*/
+    color: white;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 0.6fr 1fr;
+        grid-template-columns: 0.6fr 1fr;
+    -webkit-column-gap: 5%;
+            column-gap: 5%;
+    padding: 0.2% 8%;
+  }
+
+  #nav1 {
+    -ms-grid-columns: 15px 0.55fr 1fr;
+        grid-template-columns: 15px 0.55fr 1fr;
+
+
+  }
+
+  #nav2 {
+    -ms-grid-columns: 65px 0.55fr 1fr;
+        grid-template-columns: 65px 0.55fr 1fr;
+
+    -webkit-column-gap: 2.9%;
+        column-gap: 2.9%;
+
+    padding: 0.2% 0%;
+
+
+  }
+
+  nav #generate {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    cursor: pointer;
+    margin-right: auto;
+    padding: 1%;
+  }
+
+  nav #run_button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    cursor: pointer;
+    margin-left: 25%;
+    margin-right: 25%;
+    text-align: center;
+    padding: 1%;
+  }
+
+  nav #generate:hover {
+    background-color: #4CAF50;
+    cursor: pointer;
+  }
+
+  nav #run_button:hover {
+    background-color: #4CAF50;
+    cursor: pointer;
+  }
+
+
+  section {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 20% 60% 20%;
+        grid-template-columns: 20% 60% 20%;
+  }
+  
+  section #Text_des1, #Text_des2 {
+    padding: 10%;
+  }
+  
+  section #Number_bars1, #Number_bars2 {
+    /*display: -webkit-box;*/
+    /*display: -ms-flexbox;*/
+    display: flex;
+    width: 100%;
+    height: 42vh;
+  }
+  
+  section #Buttons1, #Buttons2 {
+    padding: 20%;
+  }
+
+  a {
+    color: #4CAF50;
+  }

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorting Algorithm Visualizer</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <header>
+        <nav id="nav2">
+            <a href="main_page.html">&lt; Back</a>
+
+            <div class="array-inputs">
+                <h3>Size of the array:</h3>
+                <input id="a_size" type="number" min=5 max=15 step=1 value=5>
+                <!--id = 名, type = type , min max = value, step = 一格拉幾多, value = initial value同埋value-->
+                
+            </div>
+
+            <div class="array-inputstext">
+                <h3>Input array:</h3>
+                <input id="a_manual" type="text">
+            </div>
+
+            <div class="array-inputs">
+                <h3>Run speed:</h3>
+                <input id="a_speed" type="range" min=1 max=5 step=1 value=2>
+            </div>
+
+        </nav>
+
+        <nav>
+            <div class="array-inputs2">
+                <button id="a_generate" onclick="msg()">Generate New Random Array</button>
+            </div>
+
+            <div class="array-inputs2">
+                <button id="a_generate2" onclick="msg_manual()">Generate New Manual Array</button>
+            </div>
+
+            <div class="array-inputsmode">
+                Mode:  &nbsp; &nbsp; &nbsp; 
+                <input type="radio" id="manual" name="mode" value="manual" onclick=mode_selection()>
+                <label for="manual">Manual</label> &nbsp; &nbsp; &nbsp;
+                <input type="radio" id="auto" name="mode" value="auto" onclick=mode_selection() checked="checked">
+                <label for="auto">Auto</label>
+            </div>
+        </nav>
+
+
+        <nav id="nav1">
+            <div class="header_right">
+                <!--<p class="nav-heading">Sorting algorithm visualizer</p>-->
+                <div class="algos">
+                    <button id="Bubble" onclick="runalgo(this.id)">Bubble</button>
+                    <button id="Selection" onclick="runalgo(this.id)">Selection</button>
+                    <button id="Insertion" onclick="runalgo(this.id)">Insertion</button>
+                    <button id="Merge" onclick="runalgo(this.id)">Merge</button>
+                    <button id="Quick" onclick="runalgo(this.id)">Quick</button>
+                </div>
+                
+            </div>
+        </nav>
+
+
+    </header>
+
+    <section>
+
+        <div id="Info_Cont1">
+            <p></p>
+        </div>
+
+        <div id="array_container">
+            
+        </div>
+
+        <div id="Info_Cont2">
+            Step-by-Step Manual Control: <br>
+            <button id="prev" type="button" onclick="prev()" disabled>Prev</button>
+            &nbsp; &nbsp; &nbsp;
+            <button id="next" type="button" onclick="next()" disabled>Next</button>
+        </div>
+
+    </section>
+
+    <footer>
+
+    </footer>
+
+    <script src="main.js"></script>   
+    <script src="visualizations.js"></script>  
+
+    <script src="bubble_sort.js"></script>
+    <script src="selection_sort.js"></script>
+    <script src="insertion_sort.js"></script>
+    <script src="merge_sort.js"></script>
+    <script src="quick_sort.js"></script>
+
+</body>
+
+</html>
