@@ -23,41 +23,41 @@ function merge_sort_manual(start,mid,end)
 {
     var p=start,q=mid+1;
 
-    var Arr=[],k=0;
+    var merge_array=[],k=0;
 
     for(var i=start; i<=end; i++)
     {
         if(p>mid)
         {
-            Arr[k++]=number_size[q++];
+            merge_array[k++]=number_size[q++];
 
             div_update_manual(JSON.parse(JSON.stringify(numberbar[q-1])),JSON.parse(JSON.stringify(number_size[q-1])),"red",q-1);
         }
         else if(q>end)
         {
-            Arr[k++]=number_size[p++];
+            merge_array[k++]=number_size[p++];
  
             div_update_manual(JSON.parse(JSON.stringify(numberbar[p-1])),JSON.parse(JSON.stringify(number_size[p-1])),"red",p-1);
         }
         else if(number_size[p]<number_size[q])
         {
-            Arr[k++]=number_size[p++];
+            merge_array[k++]=number_size[p++];
   
             div_update_manual(JSON.parse(JSON.stringify(numberbar[p-1])),JSON.parse(JSON.stringify(number_size[p-1])),"red",p-1);
         }
         else
         {
-            Arr[k++]=number_size[q++];
+            merge_array[k++]=number_size[q++];
             
             div_update_manual(JSON.parse(JSON.stringify(numberbar[q-1])),JSON.parse(JSON.stringify(number_size[q-1])),"red",q-1);
         }
     }
 
-    msg_update_merge_manual(Arr);
+    msg_update_merge_manual(merge_array);
 
     for(var t=0;t<k;t++)
     {
-        number_size[start++]=Arr[t];
+        number_size[start++]=merge_array[t];
         
         div_update_manual(JSON.parse(JSON.stringify(numberbar[start-1])),JSON.parse(JSON.stringify(number_size[start-1])),"green",start-1);
     }
@@ -65,9 +65,11 @@ function merge_sort_manual(start,mid,end)
 
 function merge_sort_auto(start,mid,end)
 {
-    var p=start,q=mid+1;
+    var p=start;
+    var q=mid+1;
 
-    var Arr=[],k=0;
+    var merge_array=[];
+    var k=0;
 
     
 
@@ -75,31 +77,31 @@ function merge_sort_auto(start,mid,end)
     {
         if(p>mid)
         {
-            Arr[k++]=number_size[q++];
+            merge_array[k++]=number_size[q++];
             div_update(numberbar[q-1],number_size[q-1],"red");//Color update
         }
         else if(q>end)
         {
-            Arr[k++]=number_size[p++];
+            merge_array[k++]=number_size[p++];
             div_update(numberbar[p-1],number_size[p-1],"red");//Color update
         }
         else if(number_size[p]<number_size[q])
         {
-            Arr[k++]=number_size[p++];
+            merge_array[k++]=number_size[p++];
             div_update(numberbar[p-1],number_size[p-1],"red");//Color update
         }
         else
         {
-            Arr[k++]=number_size[q++];
+            merge_array[k++]=number_size[q++];
             div_update(numberbar[q-1],number_size[q-1],"red");//Color update
         }
     }
 
-    msg_update_merge(Arr);
+    msg_update_merge(merge_array);
 
     for(var t=0;t<k;t++)
     {
-        number_size[start++]=Arr[t];
+        number_size[start++]=merge_array[t];
         div_update(numberbar[start-1],number_size[start-1],"green");//Color update
     }
     

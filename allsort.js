@@ -319,9 +319,11 @@ function merge()
 
 function merge_sort_manual(start,mid,end)
 {
-    var p=start,q=mid+1;
+    var p=start;
+    var q=mid+1;
 
-    var Arr=[],k=0;
+    var merge_array=[];
+    var k=0;
 
     if (algonum == 1) {
 
@@ -329,35 +331,35 @@ function merge_sort_manual(start,mid,end)
         {
             if(p>mid)
             {
-                Arr[k++]=number_sizes1[q++];
+                merge_array[k++]=number_sizes1[q++];
                 
                 update_bar(JSON.parse(JSON.stringify(numberbar1[q-1])),JSON.parse(JSON.stringify(number_sizes1[q-1])),"red",q-1);
             }
             else if(q>end)
             {
-                Arr[k++]=number_sizes1[p++];
+                merge_array[k++]=number_sizes1[p++];
                 
                 update_bar(JSON.parse(JSON.stringify(numberbar1[p-1])),JSON.parse(JSON.stringify(number_sizes1[p-1])),"red",p-1);
             }
             else if(number_sizes1[p]<number_sizes1[q])
             {
-                Arr[k++]=number_sizes1[p++];
+                merge_array[k++]=number_sizes1[p++];
                 
                 update_bar(JSON.parse(JSON.stringify(numberbar1[p-1])),JSON.parse(JSON.stringify(number_sizes1[p-1])),"red",p-1);
             }
             else
             {
-                Arr[k++]=number_sizes1[q++];
+                merge_array[k++]=number_sizes1[q++];
                 
                 update_bar(JSON.parse(JSON.stringify(numberbar1[q-1])),JSON.parse(JSON.stringify(number_sizes1[q-1])),"red",q-1);
             }
         }
     
-        msg_update_merge_manual(Arr);
+        msg_update_merge_manual(merge_array);
     
         for(var t=0;t<k;t++)
         {
-            number_sizes1[start++]=Arr[t];
+            number_sizes1[start++]=merge_array[t];
             
             update_bar(JSON.parse(JSON.stringify(numberbar1[start-1])),JSON.parse(JSON.stringify(number_sizes1[start-1])),"green",start-1);
         }
@@ -371,35 +373,35 @@ function merge_sort_manual(start,mid,end)
         {
             if(p>mid)
             {
-                Arr[k++]=number_sizes2[q++];
+                merge_array[k++]=number_sizes2[q++];
                 
                 update_bar(JSON.parse(JSON.stringify(numberbar2[q-1])),JSON.parse(JSON.stringify(number_sizes2[q-1])),"red",q-1);
             }
             else if(q>end)
             {
-                Arr[k++]=number_sizes2[p++];
+                merge_array[k++]=number_sizes2[p++];
                 
                 update_bar(JSON.parse(JSON.stringify(numberbar2[p-1])),JSON.parse(JSON.stringify(number_sizes2[p-1])),"red",p-1);
             }
             else if(number_sizes2[p]<number_sizes2[q])
             {
-                Arr[k++]=number_sizes2[p++];
+                merge_array[k++]=number_sizes2[p++];
                 
                 update_bar(JSON.parse(JSON.stringify(numberbar2[p-1])),JSON.parse(JSON.stringify(number_sizes2[p-1])),"red",p-1);
             }
             else
             {
-                Arr[k++]=number_sizes2[q++];
+                merge_array[k++]=number_sizes2[q++];
                 
                 update_bar(JSON.parse(JSON.stringify(numberbar2[q-1])),JSON.parse(JSON.stringify(number_sizes2[q-1])),"red",q-1);
             }
         }
     
-        msg_update_merge_manual(Arr);
+        msg_update_merge_manual(merge_array);
     
         for(var t=0;t<k;t++)
         {
-            number_sizes2[start++]=Arr[t];
+            number_sizes2[start++]=merge_array[t];
             
             update_bar(JSON.parse(JSON.stringify(numberbar2[start-1])),JSON.parse(JSON.stringify(number_sizes2[start-1])),"green",start-1);
         }
