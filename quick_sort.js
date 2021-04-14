@@ -9,7 +9,7 @@ function Quick()
         enable_buttons();
     } else {
         for (var i = 0; i < array_size; i++){
-            origin_array[i] = JSON.parse(JSON.stringify(div_sizes[i]));
+            origin_array[i] = JSON.parse(JSON.stringify(number_size[i]));
         }
         action_count = 0;
         print_action_count = 0;
@@ -22,132 +22,129 @@ function Quick()
 function quick_partition_manual (start, end)
 {
     var i = start + 1;
-    var piv = div_sizes[start] ;//make the first element as pivot element.
-    //div_update(divs[start],div_sizes[start],"yellow");//Color update
+    var piv = number_size[start] ;
     msg_update_quick(piv);
-    div_update_manual(JSON.parse(JSON.stringify(divs[start])),JSON.parse(JSON.stringify(div_sizes[start])),"yellow",start);
+    div_update_manual(JSON.parse(JSON.stringify(numberbar[start])),JSON.parse(JSON.stringify(number_size[start])),"yellow",start);
 
         for(var j =start + 1; j <= end ; j++ )
         {
             //re-arrange the array by putting elements which are less than pivot on one side and which are greater that on other.
-            if (div_sizes[ j ] < piv)
+            if (number_size[ j ] < piv)
             {
-                div_update_manual(JSON.parse(JSON.stringify(divs[j])),JSON.parse(JSON.stringify(div_sizes[j])), "yellow",j);//Color update
+                div_update_manual(JSON.parse(JSON.stringify(numberbar[j])),JSON.parse(JSON.stringify(number_size[j])), "yellow",j);//Color update
                 
-                //if (i != j)
-                msg_update_quick_swap_largesmall(piv, div_sizes[i], div_sizes[j], i+1);
-                //else
-                    //msg_update_quick_swap_largesmallequal(piv, div_sizes[i]);
+                
+                msg_update_quick_swap_largesmall(piv, number_size[i], number_size[j], i+1);
+                
 
-                div_update_manual(JSON.parse(JSON.stringify(divs[i])),JSON.parse(JSON.stringify(div_sizes[i])), "red",i);//Color update
-                div_update_manual(JSON.parse(JSON.stringify(divs[j])),JSON.parse(JSON.stringify(div_sizes[j])), "red",j);//Color update
-
-
-                var temp=div_sizes[i];
-                div_sizes[i]=div_sizes[j];
-                div_sizes[j]=temp;
+                div_update_manual(JSON.parse(JSON.stringify(numberbar[i])),JSON.parse(JSON.stringify(number_size[i])), "red",i);//Color update
+                div_update_manual(JSON.parse(JSON.stringify(numberbar[j])),JSON.parse(JSON.stringify(number_size[j])), "red",j);//Color update
 
 
-                div_update_manual(JSON.parse(JSON.stringify(divs[i])),JSON.parse(JSON.stringify(div_sizes[i])), "red",i);//Height update
-                div_update_manual(JSON.parse(JSON.stringify(divs[j])),JSON.parse(JSON.stringify(div_sizes[j])), "red",j);//Height update
+                var temp=number_size[i];
+                number_size[i]=number_size[j];
+                number_size[j]=temp;
 
-                div_update_manual(JSON.parse(JSON.stringify(divs[i])),JSON.parse(JSON.stringify(div_sizes[i])), "blue",i);//Height update
-                div_update_manual(JSON.parse(JSON.stringify(divs[j])),JSON.parse(JSON.stringify(div_sizes[j])), "blue",j);//Height update
+
+                div_update_manual(JSON.parse(JSON.stringify(numberbar[i])),JSON.parse(JSON.stringify(number_size[i])), "red",i);//Height update
+                div_update_manual(JSON.parse(JSON.stringify(numberbar[j])),JSON.parse(JSON.stringify(number_size[j])), "red",j);//Height update
+
+                div_update_manual(JSON.parse(JSON.stringify(numberbar[i])),JSON.parse(JSON.stringify(number_size[i])), "blue",i);//Height update
+                div_update_manual(JSON.parse(JSON.stringify(numberbar[j])),JSON.parse(JSON.stringify(number_size[j])), "blue",j);//Height update
 
                 i += 1;
             }
     }
     if (start == i-1)
-        msg_update_quick_swapwithpivotequal(div_sizes[start], end+1);
+        msg_update_quick_swapwithpivotequal(number_size[start], end+1);
     else
-        msg_update_quick_swapwithpivot(div_sizes[start], div_sizes[i-1]);
+        msg_update_quick_swapwithpivot(number_size[start], number_size[i-1]);
  
-    div_update_manual(JSON.parse(JSON.stringify(divs[start])),JSON.parse(JSON.stringify(div_sizes[start])), "red",start);//Color update
-    div_update_manual(JSON.parse(JSON.stringify(divs[i-1])),JSON.parse(JSON.stringify(div_sizes[i-1])), "red",i-1);//Color update
+    div_update_manual(JSON.parse(JSON.stringify(numberbar[start])),JSON.parse(JSON.stringify(number_size[start])), "red",start);//Color update
+    div_update_manual(JSON.parse(JSON.stringify(numberbar[i-1])),JSON.parse(JSON.stringify(number_size[i-1])), "red",i-1);//Color update
     
 
-    var temp=div_sizes[start];//put the pivot element in its proper place.
-    div_sizes[start]=div_sizes[i-1];
-    div_sizes[i-1]=temp;
+    var temp=number_size[start];//put the pivot element in its proper place.
+    number_size[start]=number_size[i-1];
+    number_size[i-1]=temp;
 
-    div_update_manual(JSON.parse(JSON.stringify(divs[start])),JSON.parse(JSON.stringify(div_sizes[start])), "red",start);//Height update
-    div_update_manual(JSON.parse(JSON.stringify(divs[i-1])),JSON.parse(JSON.stringify(div_sizes[i-1])), "red",i-1);//Height update
+    div_update_manual(JSON.parse(JSON.stringify(numberbar[start])),JSON.parse(JSON.stringify(number_size[start])), "red",start);//Height update
+    div_update_manual(JSON.parse(JSON.stringify(numberbar[i-1])),JSON.parse(JSON.stringify(number_size[i-1])), "red",i-1);//Height update
 
     for(var t=start;t<i;t++)
     {
-        div_update_manual(JSON.parse(JSON.stringify(divs[t])),JSON.parse(JSON.stringify(div_sizes[t])), "green",t);//Color update
-        //console.log(divs[t],JSON.parse(JSON.stringify(div_sizes[t])));
-        //console.log(action_count);
+        div_update_manual(JSON.parse(JSON.stringify(numberbar[t])),JSON.parse(JSON.stringify(number_size[t])), "green",t);//Color update
+        
     }
     if (t == end) {
-        div_update_manual(JSON.parse(JSON.stringify(divs[t])),JSON.parse(JSON.stringify(div_sizes[t])), "green",t);
-        //console.log(end, "AAA");
+        div_update_manual(JSON.parse(JSON.stringify(numberbar[t])),JSON.parse(JSON.stringify(number_size[t])), "green",t);
+        
     }
 
 
-    return i-1;//return the position of the pivot
+    return i-1;
 }
 
 function quick_partition_auto (start, end)
 {
     var i = start + 1;
-    var piv = div_sizes[start] ;//make the first element as pivot element.
+    var piv = number_size[start] ;//make the first element as pivot element.
 
     msg_update_quick(piv);
-    div_update(divs[start],div_sizes[start],"yellow");//Color update
+    div_update(numberbar[start],number_size[start],"yellow");
 
         for(var j =start + 1; j <= end ; j++ )
         {
             //re-arrange the array by putting elements which are less than pivot on one side and which are greater that on other.
-            if (div_sizes[ j ] < piv)
+            if (number_size[ j ] < piv)
             {
-                div_update(divs[j],div_sizes[j],"yellow");//Color update
+                div_update(numberbar[j],number_size[j],"yellow");
 
-                //if (i != j)
-                msg_update_quick_swap_largesmall(piv, div_sizes[i], div_sizes[j], i+1);
-                //else
-                    //msg_update_quick_swap_largesmallequal(piv, div_sizes[i]);
+                
+                msg_update_quick_swap_largesmall(piv, number_size[i], number_size[j], i+1);
+                
+                    
 
-                div_update(divs[i],div_sizes[i],"red");//Color update
-                div_update(divs[j],div_sizes[j],"red");//Color update
+                div_update(numberbar[i],number_size[i],"red");
+                div_update(numberbar[j],number_size[j],"red");
             
 
-                var temp=div_sizes[i];
-                div_sizes[i]=div_sizes[j];
-                div_sizes[j]=temp;
+                var temp=number_size[i];
+                number_size[i]=number_size[j];
+                number_size[j]=temp;
 
 
-                div_update(divs[i],div_sizes[i],"red");//Height update
-                div_update(divs[j],div_sizes[j],"red");//Height update
+                div_update(numberbar[i],number_size[i],"red");
+                div_update(numberbar[j],number_size[j],"red");
 
-                div_update(divs[i],div_sizes[i],"blue");//Height update
-                div_update(divs[j],div_sizes[j],"blue");//Height update
+                div_update(numberbar[i],number_size[i],"blue");
+                div_update(numberbar[j],number_size[j],"blue");
 
                 i += 1; // index that pivot is just less than only that number
             }
     }
     if (start == i-1)
-        msg_update_quick_swapwithpivotequal(div_sizes[start], end+1);
+        msg_update_quick_swapwithpivotequal(number_size[start], end+1);
     else
-        msg_update_quick_swapwithpivot(div_sizes[start], div_sizes[i-1]);
+        msg_update_quick_swapwithpivot(number_size[start], number_size[i-1]);
     
-    div_update(divs[start],div_sizes[start],"red");//Color update
-    div_update(divs[i-1],div_sizes[i-1],"red");//Color update
+    div_update(numberbar[start],number_size[start],"red");
+    div_update(numberbar[i-1],number_size[i-1],"red");
     
 
-    var temp=div_sizes[start];//put the pivot element in its proper place.
-    div_sizes[start]=div_sizes[i-1];
-    div_sizes[i-1]=temp;
+    var temp=number_size[start];
+    number_size[start]=number_size[i-1];
+    number_size[i-1]=temp;
     
-    div_update(divs[start],div_sizes[start],"red");//Height update
-    div_update(divs[i-1],div_sizes[i-1],"red");//Height update
+    div_update(numberbar[start],number_size[start],"red");
+    div_update(numberbar[i-1],number_size[i-1],"red");
 
     for(var t=start;t<i;t++)
     {
-        div_update(divs[t],div_sizes[t],"green");//Color update
+        div_update(numberbar[t],number_size[t],"green");
     }
     if (t == end) {
-        div_update(divs[t],div_sizes[t],"green");
+        div_update(numberbar[t],number_size[t],"green");
 
     }
 
@@ -172,7 +169,7 @@ function quick_sort_manual(start, end)
     {
         
         var piv_pos = quick_partition_auto(start, end);
-        //msg_update_quick(div_size[piv_pos]);
+        
         quick_sort_auto(start, piv_pos-1);
         quick_sort_auto(piv_pos+1, end);
     }

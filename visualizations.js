@@ -1,11 +1,3 @@
-/*
-
-default setting去入唔同sort
-
-名.addEventListener("EventType", function名)
-    */
-
-//We only have to change background-color and height of the sorting element.
 
 var speed=50;
 
@@ -32,7 +24,7 @@ function vis_speed()
 }
 
 var delay_time=100000/(Math.floor(array_size/5)*speed);        //Decrease numerator to increase speed.
-var c_delay=0;//This is updated ov every div change so that visualization is visible.
+var c_delay=0;
 var manual_action = [];
 var manual_print_action = [];
 var manual_action_index = [];
@@ -59,8 +51,8 @@ function div_update_manual(cont,height,color,index)
       
     if (action_count == 0) {
         for (var i = 0; i < array_size; i++) {
-            array_style[(action_count*array_size)+i] = divs[i].style.cssText;
-            array_innerHTML[(action_count*array_size)+i] = divs[i].innerHTML;
+            array_style[(action_count*array_size)+i] = numberbar[i].style.cssText;
+            array_innerHTML[(action_count*array_size)+i] = numberbar[i].innerHTML;
             //console.log(action_count, "AAA", i);
             //console.log(array_style[(action_count+1)*i]);
             //console.log(array_innerHTML[(action_count+1)*i]);
@@ -89,7 +81,7 @@ function div_update_manual(cont,height,color,index)
 function msg_update_bubble(firstnum, secnum) 
 {
     window.setTimeout(function(){
-        document.getElementById("Info_Cont1").innerHTML = "Bubble sort is running.<br></br> Current step: <br></br>" + firstnum + " swapped with " + secnum;
+        document.getElementById("Text_des1").innerHTML = "Bubble sort is running.<br></br> Current step: <br></br>" + firstnum + " swapped with " + secnum;
     }, c_delay);
 
 }
@@ -104,7 +96,7 @@ function msg_update_bubble_manual(firstnum, secnum, stepcount)
 function msg_update_selection(indexnum, minnum) 
 {
     window.setTimeout(function(){
-        document.getElementById("Info_Cont1").innerHTML = "Selection sort is running.<br></br> Current step: <br></br>" + "Current number to be swapped is " + indexnum + "<br></br>Current mininum number is " + minnum;
+        document.getElementById("Text_des1").innerHTML = "Selection sort is running.<br></br> Current step: <br></br>" + "Current number to be swapped is " + indexnum + "<br></br>Current mininum number is " + minnum;
     }, c_delay);
 
 }
@@ -119,7 +111,7 @@ function msg_update_selection_manual(indexnum, minnum, stepcount)
 function msg_update_selection_swap(firstnum, secnum) 
 {
     window.setTimeout(function(){
-        document.getElementById("Info_Cont1").innerHTML = "Selection sort is running.<br></br> Current step: <br></br>" + firstnum + " swapped with " + secnum;
+        document.getElementById("Text_des1").innerHTML = "Selection sort is running.<br></br> Current step: <br></br>" + firstnum + " swapped with " + secnum;
     }, c_delay);
 
 }
@@ -134,7 +126,7 @@ function msg_update_selection_swap_manual(firstnum, secnum, stepcount)
 function msg_update_insertion_swap(firstnum, secnum)
 {
     window.setTimeout(function(){
-        document.getElementById("Info_Cont1").innerHTML = "Insertion sort is running.<br></br> The number " + firstnum + " is inserted before the number " + secnum + "<br></br>";
+        document.getElementById("Text_des1").innerHTML = "Insertion sort is running.<br></br> The number " + firstnum + " is inserted before the number " + secnum + "<br></br>";
     }, c_delay);
 }
 
@@ -148,7 +140,7 @@ function msg_update_insertion_swap_manual(firstnum, secnum, stepcount)
 function msg_update_merge(array)
 {
     window.setTimeout(function(){
-        document.getElementById("Info_Cont1").innerHTML = "Merge sort is running.<br></br> Current step: <br></br>" + "The number bars in red are sorting. <br></br> The number bars in yellow are in divide and conquer. <br></br> The current sorted array is " + array;
+        document.getElementById("Text_des1").innerHTML = "Merge sort is running.<br></br> Current step: <br></br>" + "The number bars in red are sorting. <br></br> The number bars in yellow are in divide and conquer. <br></br> The current sorted array is " + array;
     }, c_delay);
 }
 
@@ -163,7 +155,7 @@ function msg_update_quick(pivot)
     
     if (mode == "auto") {
         window.setTimeout(function(){
-            document.getElementById("Info_Cont1").innerHTML = display;
+            document.getElementById("Text_des1").innerHTML = display;
         }, c_delay);
     }
     else {
@@ -178,7 +170,7 @@ function msg_update_quick_swapwithpivot(pivot, smallernum)
     
     if (mode == "auto") {
         window.setTimeout(function(){
-            document.getElementById("Info_Cont1").innerHTML = display;
+            document.getElementById("Text_des1").innerHTML = display;
         }, c_delay);
     }
     else {
@@ -192,7 +184,7 @@ function msg_update_quick_swapwithpivotequal(pivot, index)
 
     if (mode == "auto") {
         window.setTimeout(function(){
-            document.getElementById("Info_Cont1").innerHTML = display;
+            document.getElementById("Text_des1").innerHTML = display;
         }, c_delay);
     }
     else {
@@ -217,7 +209,7 @@ function msg_update_quick_swap_largesmall(pivot, large, small, index)
 
     if (mode == "auto") {
         window.setTimeout(function(){
-            document.getElementById("Info_Cont1").innerHTML = display;
+            document.getElementById("Text_des1").innerHTML = display;
         }, c_delay);
     }
     else {
@@ -232,7 +224,7 @@ function msg_update_quick_swap_largesmallequal(pivot, index, equal)
 
     if (mode == "auto") {
         window.setTimeout(function(){
-            document.getElementById("Info_Cont1").innerHTML = display;
+            document.getElementById("Text_des1").innerHTML = display;
         }, c_delay);
     }
     else {
@@ -243,11 +235,11 @@ function msg_update_quick_swap_largesmallequal(pivot, index, equal)
 function next()
 {
 
-    divs[manual_action_index[print_action_count]].innerHTML = manual_action[print_action_count].innerHTML;
-    divs[manual_action_index[print_action_count]].style = manual_action[print_action_count].style;
+    numberbar[manual_action_index[print_action_count]].innerHTML = manual_action[print_action_count].innerHTML;
+    numberbar[manual_action_index[print_action_count]].style = manual_action[print_action_count].style;
     
     if (manual_print_action[print_action_count] != null) {
-        document.getElementById("Info_Cont1").innerHTML = manual_print_action[print_action_count];
+        document.getElementById("Text_des1").innerHTML = manual_print_action[print_action_count];
     }
     
     print_action_count += 1;
@@ -267,18 +259,18 @@ function prev()
         print_action_count -= 1;
 
         for (var i = 0; i < array_size; i++) {
-            divs[i].innerHTML = array_innerHTML[(print_action_count*array_size)+i];
-            divs[i].style = array_style[(print_action_count*array_size)+i];
+            numberbar[i].innerHTML = array_innerHTML[(print_action_count*array_size)+i];
+            numberbar[i].style = array_style[(print_action_count*array_size)+i];
 
         }
 
 
         //cont.innerHTML = "";
-        //divs[manual_action_index[print_action_count]].innerHTML = manual_action[print_action_count].innerHTML;
-        //divs[manual_action_index[print_action_count]].style = manual_action[print_action_count].style;
+        //numberbar[manual_action_index[print_action_count]].innerHTML = manual_action[print_action_count].innerHTML;
+        //numberbar[manual_action_index[print_action_count]].style = manual_action[print_action_count].style;
         
         if (manual_print_action[print_action_count] != null) {
-            document.getElementById("Info_Cont1").innerHTML = manual_print_action[print_action_count];
+            document.getElementById("Text_des1").innerHTML = manual_print_action[print_action_count];
         }
         
         //print_action_count -= 1;

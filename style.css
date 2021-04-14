@@ -217,7 +217,7 @@
         grid-template-columns: 20% 60% 20%;
   }
   
-  section #Info_Cont1 {
+  section #Text_des1 {
     padding: 10%;
   }
   
@@ -229,7 +229,7 @@
     height: 75vh;
   }
   
-  section #Info_Cont2 {
+  section #Text_des2 {
     padding: 20%;
   }
   

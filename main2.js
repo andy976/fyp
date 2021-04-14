@@ -42,7 +42,6 @@ function generate_array()
         
         number_sizes1[i] = temp_num;
         number_sizes2[i] = temp_num;
-        //div_sizes[i]=Math.floor(Math.random() * 0.5*(inp_as.max - inp_as.min) ) + 10;
         
         numberbar1[i]=document.createElement("div");
         numberbar2[i]=document.createElement("div");
@@ -80,7 +79,6 @@ function generate_array_manual(array_size1, div_sizes1)
         
         number_sizes1[i] = temp_num;
         number_sizes2[i] = temp_num;
-        //div_sizes[i]=Math.floor(Math.random() * 0.5*(inp_as.max - inp_as.min) ) + 10;
         
         numberbar1[i]=document.createElement("div");
         numberbar2[i]=document.createElement("div");
@@ -112,32 +110,34 @@ function mode_selection()
 function tokenize()
 {
     check_array = true;
+    var excess_height = true;
     inp_array = document.getElementById("a_manual");
-    //alert(inp_array.value);
-    //inp_array = inp_array.value.replace(/^[,\s]+|[,\s]+$/g, '').replace(/,[,\s]*,/g, ',');
+    
     inp_array = inp_array.value.replace(/[\s,.]+/g, ',');
     
     manual_array = inp_array.split(',').filter(item => item).map(Number);
     
-    //manual_array = JSON.parse(manual_array);
-    //alert(manual_array);
+
     for (var i = 0; i < manual_array.length; i++) {
         if (isNaN(manual_array[i]))
             check_array = false;
+        else {
+            if ((manual_array[i] >= 100) || (manual_array[i] < 10))
+                excess_height = false;
+        }
     }
     if (check_array == false) {
         alert("Your input is invalid. Please check and input again!");
+    }
+    if (excess_height == false) {
+        check_array = false;
+        alert("Your input number should be within 10 - 100. Please check and input again!");
     }
     if ((manual_array.length < 5) || (manual_array.length > 15)) {
         check_array = false;
         alert("The array size should be within 5 - 15. Your current array size is "+ manual_array.length + ". Please input again!");
     }
-    //alert(manual_array);
-    /*for (var i = 0; i < inp_array.length; i++) { 
-        manual_array[i] = parseInt(manual_array[i], 10); 
-    } 
-    //manual_array = inp_array.split(',').map(Number);
-    alert(manual_array);*/
+    
 
 }
 
@@ -178,8 +178,5 @@ function run()
 
     simu();
     
-    /*switch (algo1) {
-        case "bubble": 
-    }*/
 
 }
