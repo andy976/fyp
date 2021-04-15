@@ -31,14 +31,14 @@ function quick_partition_manual (start, end)
             //re-arrange the array by putting elements which are less than pivot on one side and which are greater that on other.
             if (number_size[ j ] < piv)
             {
-                div_update_manual(JSON.parse(JSON.stringify(numberbar[j])),JSON.parse(JSON.stringify(number_size[j])), "yellow",j);//Color update
+                div_update_manual(JSON.parse(JSON.stringify(numberbar[j])),JSON.parse(JSON.stringify(number_size[j])), "yellow",j); 
                 
                 
                 msg_update_quick_swap_largesmall(piv, number_size[i], number_size[j], i+1);
                 
 
-                div_update_manual(JSON.parse(JSON.stringify(numberbar[i])),JSON.parse(JSON.stringify(number_size[i])), "red",i);//Color update
-                div_update_manual(JSON.parse(JSON.stringify(numberbar[j])),JSON.parse(JSON.stringify(number_size[j])), "red",j);//Color update
+                div_update_manual(JSON.parse(JSON.stringify(numberbar[i])),JSON.parse(JSON.stringify(number_size[i])), "red",i); 
+                div_update_manual(JSON.parse(JSON.stringify(numberbar[j])),JSON.parse(JSON.stringify(number_size[j])), "red",j); 
 
 
                 var temp=number_size[i];
@@ -46,11 +46,11 @@ function quick_partition_manual (start, end)
                 number_size[j]=temp;
 
 
-                div_update_manual(JSON.parse(JSON.stringify(numberbar[i])),JSON.parse(JSON.stringify(number_size[i])), "red",i);//Height update
-                div_update_manual(JSON.parse(JSON.stringify(numberbar[j])),JSON.parse(JSON.stringify(number_size[j])), "red",j);//Height update
+                div_update_manual(JSON.parse(JSON.stringify(numberbar[i])),JSON.parse(JSON.stringify(number_size[i])), "red",i); 
+                div_update_manual(JSON.parse(JSON.stringify(numberbar[j])),JSON.parse(JSON.stringify(number_size[j])), "red",j); 
 
-                div_update_manual(JSON.parse(JSON.stringify(numberbar[i])),JSON.parse(JSON.stringify(number_size[i])), "blue",i);//Height update
-                div_update_manual(JSON.parse(JSON.stringify(numberbar[j])),JSON.parse(JSON.stringify(number_size[j])), "blue",j);//Height update
+                div_update_manual(JSON.parse(JSON.stringify(numberbar[i])),JSON.parse(JSON.stringify(number_size[i])), "blue",i); 
+                div_update_manual(JSON.parse(JSON.stringify(numberbar[j])),JSON.parse(JSON.stringify(number_size[j])), "blue",j); 
 
                 i += 1;
             }
@@ -60,20 +60,20 @@ function quick_partition_manual (start, end)
     else
         msg_update_quick_swapwithpivot(number_size[start], number_size[i-1]);
  
-    div_update_manual(JSON.parse(JSON.stringify(numberbar[start])),JSON.parse(JSON.stringify(number_size[start])), "red",start);//Color update
-    div_update_manual(JSON.parse(JSON.stringify(numberbar[i-1])),JSON.parse(JSON.stringify(number_size[i-1])), "red",i-1);//Color update
+    div_update_manual(JSON.parse(JSON.stringify(numberbar[start])),JSON.parse(JSON.stringify(number_size[start])), "red",start); 
+    div_update_manual(JSON.parse(JSON.stringify(numberbar[i-1])),JSON.parse(JSON.stringify(number_size[i-1])), "red",i-1); 
     
 
     var temp=number_size[start];//put the pivot element in its proper place.
     number_size[start]=number_size[i-1];
     number_size[i-1]=temp;
 
-    div_update_manual(JSON.parse(JSON.stringify(numberbar[start])),JSON.parse(JSON.stringify(number_size[start])), "red",start);//Height update
-    div_update_manual(JSON.parse(JSON.stringify(numberbar[i-1])),JSON.parse(JSON.stringify(number_size[i-1])), "red",i-1);//Height update
+    div_update_manual(JSON.parse(JSON.stringify(numberbar[start])),JSON.parse(JSON.stringify(number_size[start])), "red",start); 
+    div_update_manual(JSON.parse(JSON.stringify(numberbar[i-1])),JSON.parse(JSON.stringify(number_size[i-1])), "red",i-1); 
 
     for(var t=start;t<i;t++)
     {
-        div_update_manual(JSON.parse(JSON.stringify(numberbar[t])),JSON.parse(JSON.stringify(number_size[t])), "green",t);//Color update
+        div_update_manual(JSON.parse(JSON.stringify(numberbar[t])),JSON.parse(JSON.stringify(number_size[t])), "green",t); 
         
     }
     if (t == end) {

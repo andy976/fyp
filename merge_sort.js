@@ -78,22 +78,22 @@ function merge_sort_auto(start,mid,end)
         if(p>mid)
         {
             merge_array[k++]=number_size[q++];
-            div_update(numberbar[q-1],number_size[q-1],"red");//Color update
+            div_update(numberbar[q-1],number_size[q-1],"red"); 
         }
         else if(q>end)
         {
             merge_array[k++]=number_size[p++];
-            div_update(numberbar[p-1],number_size[p-1],"red");//Color update
+            div_update(numberbar[p-1],number_size[p-1],"red"); 
         }
         else if(number_size[p]<number_size[q])
         {
             merge_array[k++]=number_size[p++];
-            div_update(numberbar[p-1],number_size[p-1],"red");//Color update
+            div_update(numberbar[p-1],number_size[p-1],"red"); 
         }
         else
         {
             merge_array[k++]=number_size[q++];
-            div_update(numberbar[q-1],number_size[q-1],"red");//Color update
+            div_update(numberbar[q-1],number_size[q-1],"red"); 
         }
     }
 
@@ -102,7 +102,7 @@ function merge_sort_auto(start,mid,end)
     for(var t=0;t<k;t++)
     {
         number_size[start++]=merge_array[t];
-        div_update(numberbar[start-1],number_size[start-1],"green");//Color update
+        div_update(numberbar[start-1],number_size[start-1],"green"); 
     }
     
 
@@ -128,7 +128,7 @@ function merge_partition_auto(start,end)
     if(start < end)
     {
         var mid=Math.floor((start + end) / 2);
-        div_update(numberbar[mid],number_size[mid],"yellow");//Color update
+        div_update(numberbar[mid],number_size[mid],"yellow"); 
 
         merge_partition_auto(start,mid);
         merge_partition_auto(mid+1,end);

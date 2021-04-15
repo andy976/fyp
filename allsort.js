@@ -452,7 +452,6 @@ function quick_partition_manual(start, end)
     if (algonum == 1) {
         var i = start + 1;
         var piv = number_sizes1[start];//make the first element as pivot element.
-        //div_update(numberbar1[start],number_sizes1[start],"yellow");//Color update
         msg_update_quick(piv);
         update_bar(JSON.parse(JSON.stringify(numberbar1[start])),JSON.parse(JSON.stringify(number_sizes1[start])),"yellow",start);
 
@@ -462,11 +461,9 @@ function quick_partition_manual(start, end)
                 if (number_sizes1[ j ] < piv)
                 {
                     update_bar(JSON.parse(JSON.stringify(numberbar1[j])),JSON.parse(JSON.stringify(number_sizes1[j])), "yellow",j);//Color update
-                    
-                    //if (i != j)
+
                     msg_update_quick_swap_largesmall(piv, number_sizes1[i], number_sizes1[j], i+1);
-                    //else
-                        //msg_update_quick_swap_largesmallequal(piv, number_sizes1[i]);
+                    
 
                     update_bar(JSON.parse(JSON.stringify(numberbar1[i])),JSON.parse(JSON.stringify(number_sizes1[i])), "red",i);//Color update
                     update_bar(JSON.parse(JSON.stringify(numberbar1[j])),JSON.parse(JSON.stringify(number_sizes1[j])), "red",j);//Color update
@@ -505,16 +502,15 @@ function quick_partition_manual(start, end)
         for(var t=start;t<i;t++)
         {
             update_bar(JSON.parse(JSON.stringify(numberbar1[t])),JSON.parse(JSON.stringify(number_sizes1[t])), "green",t);//Color update
-            //console.log(numberbar1[t],JSON.parse(JSON.stringify(number_sizes1[t])));
-            //console.log(action_count);
+            
         }
         if (t == end) {
             update_bar(JSON.parse(JSON.stringify(numberbar1[t])),JSON.parse(JSON.stringify(number_sizes1[t])), "green",t);
-            //console.log(end, "AAA");
+            
         }
 
 
-        return i-1;//return the position of the pivot
+        return i-1;
     }
 
 
@@ -522,7 +518,7 @@ function quick_partition_manual(start, end)
 
         var i = start + 1;
         var piv = number_sizes2[start];//make the first element as pivot element.
-        //div_update(numberbar2[start],number_sizes2[start],"yellow");//Color update
+
         msg_update_quick(piv);
         update_bar(JSON.parse(JSON.stringify(numberbar2[start])),JSON.parse(JSON.stringify(number_sizes2[start])),"yellow",start);
     
@@ -533,10 +529,8 @@ function quick_partition_manual(start, end)
                 {
                     update_bar(JSON.parse(JSON.stringify(numberbar2[j])),JSON.parse(JSON.stringify(number_sizes2[j])), "yellow",j);//Color update
                     
-                    //if (i != j)
                     msg_update_quick_swap_largesmall(piv, number_sizes2[i], number_sizes2[j], i+1);
-                    //else
-                        //msg_update_quick_swap_largesmallequal(piv, number_sizes2[i]);
+                    
     
                     update_bar(JSON.parse(JSON.stringify(numberbar2[i])),JSON.parse(JSON.stringify(number_sizes2[i])), "red",i);//Color update
                     update_bar(JSON.parse(JSON.stringify(numberbar2[j])),JSON.parse(JSON.stringify(number_sizes2[j])), "red",j);//Color update
@@ -565,7 +559,7 @@ function quick_partition_manual(start, end)
         update_bar(JSON.parse(JSON.stringify(numberbar2[i-1])),JSON.parse(JSON.stringify(number_sizes2[i-1])), "red",i-1);//Color update
         
     
-        var temp=number_sizes2[start];//put the pivot element in its proper place.
+        var temp=number_sizes2[start];
         number_sizes2[start]=number_sizes2[i-1];
         number_sizes2[i-1]=temp;
     
@@ -575,16 +569,15 @@ function quick_partition_manual(start, end)
         for(var t=start;t<i;t++)
         {
             update_bar(JSON.parse(JSON.stringify(numberbar2[t])),JSON.parse(JSON.stringify(number_sizes2[t])), "green",t);//Color update
-            //console.log(numberbar2[t],JSON.parse(JSON.stringify(number_sizes2[t])));
-            //console.log(action_count);
+            
         }
         if (t == end) {
             update_bar(JSON.parse(JSON.stringify(numberbar2[t])),JSON.parse(JSON.stringify(number_sizes2[t])), "green",t);
-            //console.log(end, "AAA");
+
         }
     
     
-        return i-1;//return the position of the pivot
+        return i-1;
 
     }
 }
